@@ -1,0 +1,8 @@
+{
+  "name": "jornais de psicologia",
+  "description": "Um material com mais de 100 emoções, apresentado de forma leve e criativa, para o psicólogo usar como atividade com os pacientes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Fundo azul claro mais presente e sem textura */
+.bg-textured-blue {
+  background-color: #D2E4FA;
+  background-image: none;
+}
+
+/* Custom scrollbar styling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Continuous Double Marquee Animations (Seamless Infinite Loop) */
+@keyframes marquee-to-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-to-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-to-left 48s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-to-right 48s linear infinite;
+}
+
+/* Maintain continuous motion under all circumstances - no pause on hover, touch, or active states */
+.animate-marquee-left:hover,
+.animate-marquee-left:active,
+.animate-marquee-left:focus,
+.animate-marquee-right:hover,
+.animate-marquee-right:active,
+.animate-marquee-right:focus {
+  animation-play-state: running !important;
+}
+
+/* ========================================================
+   SNAKE / UNDULATING WAVE MOTION (ONDULAÇÃO UNIFORME E SUAVE)
+   ======================================================== */
+
+/* Faixa Roxa: Ondulação vertical uniforme e suave */
+@keyframes snake-banner-uniform {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-snake-banner {
+  animation: snake-banner-uniform 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Mapas Mentais (Fileira 1): Ondulação vertical uniforme e harmoniosa */
+@keyframes snake-card-uniform-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-snake-card-1 {
+  animation: snake-card-uniform-1 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Mapas Mentais (Fileira 2): Ondulação vertical uniforme em contra-fase */
+@keyframes snake-card-uniform-2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(6px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-snake-card-2 {
+  animation: snake-card-uniform-2 4.5s ease-in-out infinite;
+  will-change: transform;
+}
