@@ -290,7 +290,7 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
               onClick={scrollToOffers}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-bold text-base sm:text-lg rounded-[11px] shadow-[0_6px_20px_rgba(22,163,74,0.35)] hover:shadow-[0_10px_26px_rgba(22,163,74,0.45)] transition-all duration-200 w-full sm:w-auto min-w-[280px] cursor-pointer group"
             >
-              <span>Quero o Jornal das Emoções</span>
+              <span>Quero os Jornais</span>
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </button>
 

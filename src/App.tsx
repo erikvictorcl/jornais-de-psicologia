@@ -10,10 +10,12 @@ import { AccessSteps } from './components/AccessSteps';
 import { Testimonials } from './components/Testimonials';
 import { Guarantee } from './components/Guarantee';
 import { MapPreviewModal } from './components/MapPreviewModal';
+import { UpgradeModal } from './components/UpgradeModal';
 import { MindMapItem } from './types';
 
 export default function App() {
   const [selectedMap, setSelectedMap] = useState<MindMapItem | null>(null);
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
 
   const [notification, setNotification] = useState<string | null>(null);
 
@@ -31,11 +33,19 @@ export default function App() {
     }
   };
 
-  const handleSelectPlan = (planName: string) => {
+  const proceedToCheckout = (planName: string) => {
     setNotification(`Opção selecionada: ${planName}. O link de checkout oficial será inserido aqui.`);
     setTimeout(() => {
       setNotification(null);
     }, 4500);
+  };
+
+  const handleSelectPlan = (planName: string) => {
+    if (planName === 'Pacote Básico') {
+      setIsUpgradeModalOpen(true);
+      return;
+    }
+    proceedToCheckout(planName);
   };
 
   return (
@@ -93,6 +103,14 @@ export default function App() {
         map={selectedMap}
         onClose={() => setSelectedMap(null)}
         onSelectPlan={scrollToOffers}
+      />
+
+      {/* Popup de Upgrade para o Pacote Bônus */}
+      <UpgradeModal
+        isOpen={isUpgradeModalOpen}
+        onClose={() => setIsUpgradeModalOpen(false)}
+        onSelectBonusPackage={() => setIsUpgradeModalOpen(false)}
+        onContinueBasicPackage={() => setIsUpgradeModalOpen(false)}
       />
 
       {/* In-app Notification Toast */}

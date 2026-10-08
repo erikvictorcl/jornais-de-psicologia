@@ -41,7 +41,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onCtaClick }) => {
             onClick={handleClick}
             className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[11px] shadow-[0_8px_25px_rgba(22,163,74,0.35)] hover:shadow-[0_12px_30px_rgba(22,163,74,0.45)] transition-all duration-200 cursor-pointer w-full sm:w-auto min-w-[280px] group"
           >
-            <span>Quero o Jornal das Emoções</span>
+            <span>Quero os Jornais</span>
             <ArrowRight className="w-5 h-5 text-white transition-transform group-hover:translate-x-1" />
           </button>
 

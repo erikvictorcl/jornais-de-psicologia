@@ -259,13 +259,13 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
               </div>
 
               {/* CTA Button */}
-              <button
-                type="button"
-                onClick={() => onSelectPlan?.('Pacote Completo')}
-                className="w-full py-3.5 sm:py-4 px-6 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[14px] sm:rounded-[16px] shadow-[0_8px_24px_rgba(22,163,74,0.35)] hover:shadow-[0_12px_30px_rgba(22,163,74,0.45)] transition-all cursor-pointer text-center"
+              <a
+                href="https://pay.wiapy.com/8DCci2o90bBY"
+                target="_self"
+                className="block w-full py-3.5 sm:py-4 px-6 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[14px] sm:rounded-[16px] shadow-[0_8px_24px_rgba(22,163,74,0.35)] hover:shadow-[0_12px_30px_rgba(22,163,74,0.45)] transition-all cursor-pointer text-center no-underline"
               >
                 Quero o Completo
-              </button>
+              </a>
 
               {/* Limited Time Notice */}
               <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-bold tracking-wider text-[#5A6578] uppercase">

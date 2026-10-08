@@ -1,0 +1,141 @@
+import React, { useEffect } from 'react';
+import { X } from 'lucide-react';
+
+interface UpgradeModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSelectBonusPackage: () => void;
+  onContinueBasicPackage: () => void;
+}
+
+export const UpgradeModal: React.FC<UpgradeModalProps> = ({
+  isOpen,
+  onClose,
+  onSelectBonusPackage,
+  onContinueBasicPackage,
+}) => {
+  const upgradePrice = '14,90';
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  const excludedBonuses = [
+    '100 Atividades de Estimulação Cognitiva',
+    'Cartas das Emoções — 50 Cartas Ilustradas',
+    'Termômetro das Emoções',
+    'Guia de Conversa com os Pais',
+  ];
+
+  return (
+    <div
+      id="upgrade-popup-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="upgrade-popup-title"
+      className="fixed inset-0 z-50 bg-black/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        id="upgrade-popup-container"
+        className="relative w-full max-w-[660px] max-h-[94vh] overflow-y-auto bg-white rounded-[20px] sm:rounded-[24px] shadow-[0_24px_60px_rgba(0,0,0,0.32)] border border-[#E1ECF7] my-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* CABEÇALHO AZUL */}
+        <div className="relative bg-[#1E56A0] text-white px-5 sm:px-8 py-4 sm:py-5 text-center flex items-center justify-center">
+          <h2
+            id="upgrade-popup-title"
+            className="text-base sm:text-xl md:text-[22px] font-extrabold tracking-tight leading-snug pr-6 sm:pr-0"
+          >
+            🎁 ESPERE! Vai deixar esses bônus incríveis?
+          </h2>
+
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Fechar popup"
+            className="absolute right-3.5 sm:right-5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <X className="w-5 h-5 stroke-[2.5]" />
+          </button>
+        </div>
+
+        {/* CONTEÚDO DO POPUP */}
+        <div className="p-5 sm:p-7 md:p-8 space-y-5 sm:space-y-6">
+          {/* TÍTULO DA LISTA DE BÔNUS NÃO INCLUÍDOS */}
+          <p className="text-center text-sm sm:text-base md:text-lg font-extrabold tracking-wide uppercase text-[#1E2530]">
+            O PACOTE BÁSICO <span className="text-[#DC2626]">NÃO INCLUI:</span>
+          </p>
+
+          {/* CAIXA VERMELHA MUITO CLARA COM OS 4 BÔNUS */}
+          <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-[14px] sm:rounded-[16px] p-4 sm:p-5 space-y-3 sm:space-y-3.5">
+            {excludedBonuses.map((bonus, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-3 text-left"
+              >
+                <span className="w-5 h-5 rounded-full bg-[#FEE2E2] text-[#DC2626] flex items-center justify-center shrink-0">
+                  <X className="w-3.5 h-3.5 stroke-[3]" />
+                </span>
+                <span className="text-sm sm:text-[15px] md:text-base font-semibold text-[#1E2530] leading-snug">
+                  {bonus}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* CAIXA VERDE-CLARA DE DESTAQUE DO PACOTE BÔNUS */}
+          <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-[14px] sm:rounded-[16px] p-4 sm:p-6 text-center">
+            <p className="text-sm sm:text-base md:text-[17px] font-bold text-[#1E2530]">
+              Por apenas R$ {upgradePrice}, destrave o
+            </p>
+            <p className="text-2xl sm:text-3xl md:text-[34px] font-black text-[#15803D] tracking-tight uppercase my-1 sm:my-1.5 leading-none">
+              PACOTE BÔNUS
+            </p>
+            <p className="text-sm sm:text-base md:text-[17px] font-bold text-[#1E2530]">
+              com todos os 4 Bônus Exclusivos
+            </p>
+          </div>
+
+          {/* BOTÕES DE AÇÃO */}
+          <div className="space-y-3 pt-1">
+            {/* BOTÃO PRINCIPAL — PACOTE BÔNUS (CHECKOUT ESPECIAL DO POPUP) */}
+            <a
+              href="https://pay.wiapy.com/DFe3R941NFe"
+              target="_self"
+              className="block w-full py-3.5 sm:py-4 px-5 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-sm sm:text-base md:text-lg rounded-[12px] sm:rounded-[14px] shadow-[0_8px_24px_rgba(22,163,74,0.32)] hover:shadow-[0_12px_28px_rgba(22,163,74,0.42)] transition-all cursor-pointer text-center no-underline"
+            >
+              SIM! Quero o Pacote Bônus por R$ {upgradePrice}
+            </a>
+
+            {/* BOTÃO SECUNDÁRIO — PACOTE BÁSICO */}
+            <a
+              href="https://pay.wiapy.com/q_RZDnLEulyG"
+              target="_self"
+              className="block w-full py-3 sm:py-3.5 px-5 bg-white hover:bg-gray-50 active:scale-[0.99] text-[#5A6578] hover:text-[#1E2530] font-semibold text-xs sm:text-sm md:text-[15px] rounded-[12px] sm:rounded-[14px] border border-gray-300 transition-all cursor-pointer text-center no-underline"
+            >
+              Continuar apenas com o Pacote Básico
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
