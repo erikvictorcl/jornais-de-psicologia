@@ -1,6 +1,5 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-import tallPixelTree from '../assets/images/tall_pixel_tree_1790862513354.jpg';
 
 export const QuickBenefits: React.FC = () => {
   const benefitCards = [
@@ -53,13 +52,18 @@ export const QuickBenefits: React.FC = () => {
             aria-hidden="true"
           >
             <img 
-              src={tallPixelTree} 
+              src="/images/tall-pixel-tree-420.webp" 
+              srcSet="/images/tall-pixel-tree-420.webp 420w, /images/tall-pixel-tree-768.webp 768w"
+              sizes="(max-width: 640px) 420px, 768px"
+              width={768}
+              height={1376}
               alt=""
               className="w-full h-full object-fill sm:object-contain mix-blend-multiply opacity-80 sm:opacity-85 md:opacity-90"
               style={{
                 filter: 'hue-rotate(-60deg) drop-shadow(0 10px 28px rgba(30,86,160,0.20)) contrast(1.06)',
               }}
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

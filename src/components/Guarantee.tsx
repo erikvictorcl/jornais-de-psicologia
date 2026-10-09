@@ -26,8 +26,8 @@ export const Guarantee: React.FC = () => {
         </p>
 
         {/* Bottom Guarantee Badge */}
-        <div className="mt-6 flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-[#3B73B9]">
-          <Ribbon className="w-4 h-4 text-[#3B73B9]" />
+        <div className="mt-6 flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-[#1E56A0]">
+          <Ribbon className="w-4 h-4 text-[#1E56A0]" />
           <span>Garantia incondicional de 7 dias</span>
         </div>
 

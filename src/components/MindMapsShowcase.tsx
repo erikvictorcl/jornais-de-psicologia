@@ -8,16 +8,17 @@ interface MindMapsShowcaseProps {
 export interface ShowcaseMindMapItem extends MindMapItem {
   sheetNumber?: string;
   badgeLabel?: string;
+  srcSet?: string;
 }
 
-// 7 Official Direct URLs from Imgur provided by the user
-const imgurJornal1 = 'https://i.imgur.com/k8rL9LU.jpeg'; // https://imgur.com/a/9lxZxsu
-const imgurJornal2 = 'https://i.imgur.com/79w7sgD.jpeg'; // https://imgur.com/a/4D07b7R
-const imgurJornal3 = 'https://i.imgur.com/w0iBVSA.jpeg'; // https://imgur.com/a/ldcisOI
-const imgurJornal4 = 'https://i.imgur.com/qQaaTXT.jpeg'; // https://imgur.com/a/cvGP4Yh
-const imgurJornal5 = 'https://i.imgur.com/jE3uTHS.jpeg'; // https://imgur.com/a/dLNapXH
-const imgurJornal6 = 'https://i.imgur.com/RW2zcwq.jpeg'; // https://imgur.com/a/At1mLX2
-const imgurJornal7 = 'https://i.imgur.com/CkgPfLO.jpeg'; // https://imgur.com/a/dVUWR3W
+// 7 Optimized Local WebP URLs
+const imgurJornal1 = '/images/jornal-1-260.webp';
+const imgurJornal2 = '/images/jornal-2-260.webp';
+const imgurJornal3 = '/images/jornal-3-260.webp';
+const imgurJornal4 = '/images/jornal-4-260.webp';
+const imgurJornal5 = '/images/jornal-5-260.webp';
+const imgurJornal6 = '/images/jornal-6-260.webp';
+const imgurJornal7 = '/images/jornal-7-260.webp';
 
 // All 7 individual Jornais das Emoções
 export const sampleMindMaps: ShowcaseMindMapItem[] = [
@@ -29,6 +30,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Atividade para reconhecer momentos felizes, conquistas e estimular bons sentimentos na criança.',
     branches: ['Reconhecer o que Sente', 'Onde Sinto no Corpo', 'Momentos Especiais'],
     previewUrl: imgurJornal1,
+    srcSet: '/images/jornal-1-260.webp 260w, /images/jornal-1-420.webp 420w, /images/jornal-1-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -39,6 +41,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Espaço seguro para a criança desabafar, dar nome às emoções e se sentir compreendida.',
     branches: ['Dar Nome ao que Sente', 'Espaço para Desabafar', 'O que Me Acalma'],
     previewUrl: imgurJornal2,
+    srcSet: '/images/jornal-2-260.webp 260w, /images/jornal-2-420.webp 420w, /images/jornal-2-600.webp 600w',
     accentColor: '#3B73B9',
   },
   {
@@ -49,6 +52,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Ajuda a criança a entender sentimentos difíceis e transformar a frustração em palavras.',
     branches: ['Gatilhos Emocionais', 'Expressão Segura', 'Como Voltar à Calma'],
     previewUrl: imgurJornal3,
+    srcSet: '/images/jornal-3-260.webp 260w, /images/jornal-3-420.webp 420w, /images/jornal-3-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -59,6 +63,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Exploração leve e criativa dos sentimentos infantis e recursos internos de proteção.',
     branches: ['O que Me Preocupa', 'Rede de Apoio', 'Descobrindo a Coragem'],
     previewUrl: imgurJornal4,
+    srcSet: '/images/jornal-4-260.webp 260w, /images/jornal-4-420.webp 420w, /images/jornal-4-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -69,6 +74,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Atividade prática para organizar pensamentos e sentimentos dentro e fora da sessão.',
     branches: ['Pensamentos Lá Dentro', 'Sinais do Corpo', 'Respiração e Presença'],
     previewUrl: imgurJornal5,
+    srcSet: '/images/jornal-5-260.webp 260w, /images/jornal-5-420.webp 420w, /images/jornal-5-600.webp 600w',
     accentColor: '#3B73B9',
   },
   {
@@ -79,6 +85,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Estimula a percepção de serenidade, segurança e autorregulação no processo terapêutico.',
     branches: ['Meu Lugar Seguro', 'O que Traz Paz', 'Vínculo Terapêutico'],
     previewUrl: imgurJornal6,
+    srcSet: '/images/jornal-6-260.webp 260w, /images/jornal-6-420.webp 420w, /images/jornal-6-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -89,6 +96,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Facilita a comunicação da criança no tempo dela, fortalecendo o vínculo com o psicólogo.',
     branches: ['No Tempo da Criança', 'Expressão sem Julgamento', 'Autoconfiança'],
     previewUrl: imgurJornal7,
+    srcSet: '/images/jornal-7-260.webp 260w, /images/jornal-7-420.webp 420w, /images/jornal-7-600.webp 600w',
     accentColor: '#3B73B9',
   },
 ];
@@ -210,10 +218,14 @@ const CleanMindMapCard: React.FC<CleanMindMapCardProps> = ({
         <div className="w-full h-full rounded-[3px] sm:rounded-md overflow-hidden bg-white flex items-center justify-center">
           <img 
             src={map.previewUrl} 
-            alt={`Jornal das Emoções - ${map.title}`}
-            referrerPolicy="no-referrer"
+            srcSet={map.srcSet}
+            sizes="(max-width: 640px) 170px, (max-width: 768px) 215px, 280px"
+            width={1055}
+            height={1491}
+            alt={ariaHidden ? '' : `Jornal das Emoções - ${map.title}`}
             className="w-full h-full object-contain select-none block"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

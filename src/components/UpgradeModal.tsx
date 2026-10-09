@@ -71,7 +71,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Fechar popup"
-            className="absolute right-3.5 sm:right-5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer"
+            className="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5 stroke-[2.5]" />
           </button>
@@ -120,7 +120,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({
             <a
               href="https://pay.wiapy.com/DFe3R941NFe"
               target="_self"
-              className="block w-full py-3.5 sm:py-4 px-5 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-sm sm:text-base md:text-lg rounded-[12px] sm:rounded-[14px] shadow-[0_8px_24px_rgba(22,163,74,0.32)] hover:shadow-[0_12px_28px_rgba(22,163,74,0.42)] transition-all cursor-pointer text-center no-underline"
+              className="block w-full py-3.5 sm:py-4 px-5 bg-[#15803D] hover:bg-[#166534] active:scale-[0.99] text-white font-extrabold text-sm sm:text-base md:text-lg rounded-[12px] sm:rounded-[14px] shadow-[0_8px_24px_rgba(22,163,74,0.32)] hover:shadow-[0_12px_28px_rgba(22,163,74,0.42)] transition-all cursor-pointer text-center no-underline"
             >
               SIM! Quero o Pacote Bônus por R$ {upgradePrice}
             </a>
@@ -129,7 +129,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({
             <a
               href="https://pay.wiapy.com/q_RZDnLEulyG"
               target="_self"
-              className="block w-full py-3 sm:py-3.5 px-5 bg-white hover:bg-gray-50 active:scale-[0.99] text-[#5A6578] hover:text-[#1E2530] font-semibold text-xs sm:text-sm md:text-[15px] rounded-[12px] sm:rounded-[14px] border border-gray-300 transition-all cursor-pointer text-center no-underline"
+              className="block w-full py-3 sm:py-3.5 px-5 bg-white hover:bg-gray-50 active:scale-[0.99] text-[#475569] hover:text-[#1E2530] font-semibold text-xs sm:text-sm md:text-[15px] rounded-[12px] sm:rounded-[14px] border border-gray-300 transition-all cursor-pointer text-center no-underline"
             >
               Continuar apenas com o Pacote Básico
             </a>

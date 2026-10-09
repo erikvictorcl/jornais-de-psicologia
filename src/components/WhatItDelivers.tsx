@@ -6,28 +6,40 @@ export const WhatItDelivers: React.FC = () => {
       id: 'bonus-1',
       badge: 'BÔNUS Nº 1',
       name: '100 Atividades de Estimulação Cognitiva',
-      image: 'https://i.imgur.com/w9rdGZW.jpeg',
+      image: '/images/bonus-1-280.webp',
+      srcSet: '/images/bonus-1-280.webp 280w, /images/bonus-1-480.webp 480w',
+      width: 1254,
+      height: 1254,
       description: 'Acervo prático com 100 atividades para estimular atenção, memória, concentração e raciocínio infantil nas sessões.',
     },
     {
       id: 'bonus-2',
       badge: 'BÔNUS Nº 2',
       name: 'Cartas das Emoções — 50 Cartas Ilustradas',
-      image: 'https://i.imgur.com/zzWMYcZ.jpeg',
+      image: '/images/bonus-2-280.webp',
+      srcSet: '/images/bonus-2-280.webp 280w, /images/bonus-2-480.webp 480w',
+      width: 1145,
+      height: 1374,
       description: '50 cartas ilustradas com rostinhos e situações do dia a dia, utilizadas para ajudar a criança a reconhecer, apontar, escolher e nomear suas emoções.',
     },
     {
       id: 'bonus-3',
       badge: 'BÔNUS Nº 3',
       name: 'Termômetro das Emoções',
-      image: 'https://i.imgur.com/j1Y8tNh.jpeg',
+      image: '/images/bonus-3-280.webp',
+      srcSet: '/images/bonus-3-280.webp 280w, /images/bonus-3-480.webp 480w',
+      width: 1254,
+      height: 1254,
       description: 'Recurso visual ilustrado para ajudar a criança a identificar a intensidade das emoções e desenvolver a percepção e a regulação emocional.',
     },
     {
       id: 'bonus-4',
       badge: 'BÔNUS Nº 4',
       name: 'Guia de Conversa com os Pais',
-      image: 'https://i.imgur.com/xqQSyr2.jpeg',
+      image: '/images/bonus-4-280.webp',
+      srcSet: '/images/bonus-4-280.webp 280w, /images/bonus-4-480.webp 480w',
+      width: 1312,
+      height: 1199,
       description: 'Guia de apoio para profissionais, contendo um modelo de devolutiva e orientações para facilitar a comunicação com os responsáveis pela criança.',
     },
   ];
@@ -113,10 +125,14 @@ export const WhatItDelivers: React.FC = () => {
                 <div className="w-[125px] min-[380px]:w-[148px] sm:w-[210px] md:w-[235px] aspect-[5/4] rounded-[12px] sm:rounded-[16px] overflow-hidden bg-[#FAF8F5] border border-[#E1ECF7] p-1 sm:p-1.5 shadow-2xs group-hover:border-[#1E56A0]/40 transition-all duration-300 flex items-center justify-center my-0.5 relative z-10">
                   <img 
                     src={bonus.image} 
+                    srcSet={bonus.srcSet}
+                    sizes="(max-width: 640px) 150px, 235px"
+                    width={bonus.width}
+                    height={bonus.height}
                     alt={bonus.name}
-                    referrerPolicy="no-referrer"
                     className="w-full h-full object-contain rounded-[8px] sm:rounded-[12px] select-none block"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -137,12 +153,12 @@ export const WhatItDelivers: React.FC = () => {
           className="mt-8 sm:mt-10 max-w-[460px] mx-auto bg-gradient-to-b from-[#235DA8] to-[#17427A] border border-[#3472C2] rounded-[20px] sm:rounded-[22px] py-4 sm:py-5 px-5 sm:px-7 text-center shadow-[0_8px_24px_rgba(30,86,160,0.24)]"
         >
           {/* Top Label */}
-          <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] text-[#FAF8F5]/90 uppercase mb-0.5">
+          <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] text-[#FAF8F5] uppercase mb-0.5">
             VALOR TOTAL DOS BÔNUS
           </p>
 
           {/* Strikethrough Value */}
-          <p className="text-base sm:text-lg md:text-xl font-bold text-[#FAF8F5]/70 line-through decoration-[#FAF8F5]/60 decoration-2 mb-1">
+          <p className="text-base sm:text-lg md:text-xl font-bold text-[#FAF8F5]/90 line-through decoration-[#FAF8F5]/80 decoration-2 mb-1">
             R$ 97,24
           </p>
 

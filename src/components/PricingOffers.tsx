@@ -54,17 +54,17 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
                 </h3>
 
                 {/* Strikethrough Price */}
-                <p className="text-sm font-bold text-[#7B8798] line-through">
+                <p className="text-sm font-bold text-[#526075] line-through">
                   R$ 37,90
                 </p>
 
                 {/* Main Price */}
-                <p className="text-4xl sm:text-5xl font-black text-[#16A34A] tracking-tight mt-0.5">
+                <p className="text-4xl sm:text-5xl font-black text-[#15803D] tracking-tight mt-0.5">
                   R$ 10
                 </p>
 
                 {/* Billing Frequency */}
-                <p className="text-xs sm:text-sm font-semibold text-[#5A6578] mt-0.5">
+                <p className="text-xs sm:text-sm font-semibold text-[#475569] mt-0.5">
                   único
                 </p>
 
@@ -105,21 +105,21 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
 
               {/* Not Included Header & Items */}
               <div className="mt-7 pt-5 border-t border-[#EBF2FA]">
-                <p className="text-[11px] font-extrabold text-[#8C98A9] uppercase tracking-wider mb-3">
+                <p className="text-[11px] font-extrabold text-[#526075] uppercase tracking-wider mb-3">
                   NÃO INCLUSOS NESTE PACOTE:
                 </p>
 
                 <div className="space-y-2.5">
-                  <div className="flex items-center gap-2.5 text-left text-xs sm:text-sm text-[#8C98A9] line-through">
-                    <X className="w-4 h-4 text-[#93B8E8] shrink-0 stroke-[2.2]" />
+                  <div className="flex items-center gap-2.5 text-left text-xs sm:text-sm text-[#5A6578] line-through">
+                    <X className="w-4 h-4 text-[#5A78A0] shrink-0 stroke-[2.2]" />
                     <span>Todos os 4 Bônus Exclusivos</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-left text-xs sm:text-sm text-[#8C98A9] line-through">
-                    <X className="w-4 h-4 text-[#93B8E8] shrink-0 stroke-[2.2]" />
+                  <div className="flex items-center gap-2.5 text-left text-xs sm:text-sm text-[#5A6578] line-through">
+                    <X className="w-4 h-4 text-[#5A78A0] shrink-0 stroke-[2.2]" />
                     <span>Cartões e Dinâmicas de Vínculo Infantil</span>
                   </div>
-                  <div className="flex items-center gap-2.5 text-left text-xs sm:text-sm text-[#8C98A9] line-through">
-                    <X className="w-4 h-4 text-[#93B8E8] shrink-0 stroke-[2.2]" />
+                  <div className="flex items-center gap-2.5 text-left text-xs sm:text-sm text-[#5A6578] line-through">
+                    <X className="w-4 h-4 text-[#5A78A0] shrink-0 stroke-[2.2]" />
                     <span>Atualizações contínuas de conteúdo</span>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
             <div className="mt-8 pt-4">
               {/* Delivery Notification Box */}
               <div className="bg-[#F0FDF4] border border-[#86EFAC]/80 rounded-[12px] sm:rounded-[14px] p-3 text-center flex items-center justify-center gap-2 mb-4">
-                <Download className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#16A34A] shrink-0" />
+                <Download className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#15803D] shrink-0" />
                 <p className="text-xs sm:text-[13px] font-bold text-[#15803D] italic leading-tight">
                   Receba o link de download instantâneo no seu e-mail e WhatsApp.
                 </p>
@@ -140,7 +140,7 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
               <button
                 type="button"
                 onClick={() => onSelectPlan?.('Pacote Básico')}
-                className="w-full py-3.5 sm:py-4 px-6 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[14px] sm:rounded-[16px] shadow-[0_8px_24px_rgba(22,163,74,0.32)] hover:shadow-[0_12px_28px_rgba(22,163,74,0.42)] transition-all cursor-pointer text-center"
+                className="w-full py-3.5 sm:py-4 px-6 bg-[#15803D] hover:bg-[#166534] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[14px] sm:rounded-[16px] shadow-[0_8px_24px_rgba(22,163,74,0.32)] hover:shadow-[0_12px_28px_rgba(22,163,74,0.42)] transition-all cursor-pointer text-center"
               >
                 Quero o básico
               </button>
@@ -160,17 +160,17 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
                 </h3>
 
                 {/* Strikethrough Price */}
-                <p className="text-sm font-bold text-[#7B8798] line-through">
+                <p className="text-sm font-bold text-[#526075] line-through">
                   R$ 127,00
                 </p>
 
                 {/* Main Price */}
-                <p className="text-4xl sm:text-5xl font-black text-[#16A34A] tracking-tight mt-0.5">
+                <p className="text-4xl sm:text-5xl font-black text-[#15803D] tracking-tight mt-0.5">
                   R$ 19,90
                 </p>
 
                 {/* Billing Frequency */}
-                <p className="text-xs sm:text-sm font-semibold text-[#5A6578] mt-0.5">
+                <p className="text-xs sm:text-sm font-semibold text-[#475569] mt-0.5">
                   único
                 </p>
 
@@ -262,14 +262,14 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
               <a
                 href="https://pay.wiapy.com/8DCci2o90bBY"
                 target="_self"
-                className="block w-full py-3.5 sm:py-4 px-6 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[14px] sm:rounded-[16px] shadow-[0_8px_24px_rgba(22,163,74,0.35)] hover:shadow-[0_12px_30px_rgba(22,163,74,0.45)] transition-all cursor-pointer text-center no-underline"
+                className="block w-full py-3.5 sm:py-4 px-6 bg-[#15803D] hover:bg-[#166534] active:scale-[0.99] text-white font-extrabold text-base sm:text-lg rounded-[14px] sm:rounded-[16px] shadow-[0_8px_24px_rgba(22,163,74,0.35)] hover:shadow-[0_12px_30px_rgba(22,163,74,0.45)] transition-all cursor-pointer text-center no-underline"
               >
                 Quero o Completo
               </a>
 
               {/* Limited Time Notice */}
-              <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-bold tracking-wider text-[#5A6578] uppercase">
-                <Clock className="w-3.5 h-3.5 text-[#5A6578]" />
+              <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-bold tracking-wider text-[#475569] uppercase">
+                <Clock className="w-3.5 h-3.5 text-[#475569]" />
                 <span>OFERTA ESPECIAL DISPONÍVEL POR TEMPO LIMITADO</span>
               </div>
             </div>

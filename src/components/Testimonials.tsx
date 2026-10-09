@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight, Star, Maximize2, X } from 'lucide-react';
 export interface TestimonialImageItem {
   id: string;
   directUrl: string;
+  srcSet: string;
+  zoomUrl: string;
   originalLink: string;
   alt: string;
   label: string;
@@ -12,35 +14,45 @@ export interface TestimonialImageItem {
 export const testimonialList: TestimonialImageItem[] = [
   {
     id: 'dep-1',
-    directUrl: 'https://i.imgur.com/9efrp1L.jpeg',
+    directUrl: '/images/dep-1-360.webp',
+    srcSet: '/images/dep-1-360.webp 360w, /images/dep-1-560.webp 560w',
+    zoomUrl: '/images/dep-1-840.webp',
     originalLink: 'https://imgur.com/a/9ExOobb',
     alt: 'Depoimento real de profissional sobre o Jornal das Emoções',
     label: 'Depoimento 1',
   },
   {
     id: 'dep-2',
-    directUrl: 'https://i.imgur.com/W5FShW3.jpeg',
+    directUrl: '/images/dep-2-360.webp',
+    srcSet: '/images/dep-2-360.webp 360w, /images/dep-2-560.webp 560w',
+    zoomUrl: '/images/dep-2-840.webp',
     originalLink: 'https://imgur.com/a/TynEO8Y',
     alt: 'Depoimento real elogiando a leveza e criatividade do material no atendimento infantil',
     label: 'Depoimento 2',
   },
   {
     id: 'dep-3',
-    directUrl: 'https://i.imgur.com/M47RCe6.jpeg',
+    directUrl: '/images/dep-3-360.webp',
+    srcSet: '/images/dep-3-360.webp 360w, /images/dep-3-560.webp 560w',
+    zoomUrl: '/images/dep-3-840.webp',
     originalLink: 'https://imgur.com/a/gpzAMjS',
     alt: 'Feedback espontâneo sobre o vínculo e expressão emocional das crianças',
     label: 'Depoimento 3',
   },
   {
     id: 'dep-4',
-    directUrl: 'https://i.imgur.com/uOLBd8i.jpeg',
+    directUrl: '/images/dep-4-360.webp',
+    srcSet: '/images/dep-4-360.webp 360w, /images/dep-4-560.webp 560w',
+    zoomUrl: '/images/dep-4-840.webp',
     originalLink: 'https://imgur.com/a/Zqfv37s',
     alt: 'Relato real sobre a praticidade das atividades prontas na sessão',
     label: 'Depoimento 4',
   },
   {
     id: 'dep-5',
-    directUrl: 'https://i.imgur.com/7DxXsi3.jpeg',
+    directUrl: '/images/dep-5-360.webp',
+    srcSet: '/images/dep-5-360.webp 360w, /images/dep-5-560.webp 560w',
+    zoomUrl: '/images/dep-5-840.webp',
     originalLink: 'https://imgur.com/a/3bV2k4s',
     alt: 'Depoimento real recomendando o Jornal das Emoções',
     label: 'Depoimento 5',
@@ -233,9 +245,13 @@ export const Testimonials: React.FC = () => {
                   <div className="relative aspect-[941/1672] w-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-white border border-[#C8D9EE]/70 shadow-lg group">
                     <img
                       src={item.directUrl}
+                      srcSet={item.srcSet}
+                      sizes="(max-width: 640px) 275px, 325px"
+                      width={941}
+                      height={1672}
                       alt={item.alt}
-                      referrerPolicy="no-referrer"
-                      loading={isCenter ? 'eager' : 'lazy'}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-contain block bg-[#FAF8F5]"
                     />
 
@@ -258,22 +274,26 @@ export const Testimonials: React.FC = () => {
 
         {/* Dots Pagination */}
         <div className="mt-5 flex flex-col items-center justify-center gap-2.5">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-0.5">
             {testimonialList.map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 type="button"
                 onClick={() => setCurrentIndex(dotIdx)}
-                className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                  currentIndex === dotIdx ? 'w-8 bg-[#1E56A0]' : 'w-2.5 bg-[#C8D9EE] hover:bg-[#93B8E8]'
-                }`}
+                className="p-2 flex items-center justify-center cursor-pointer group"
                 aria-label={`Ir para depoimento ${dotIdx + 1}`}
-              />
+              >
+                <span
+                  className={`block h-2.5 rounded-full transition-all ${
+                    currentIndex === dotIdx ? 'w-8 bg-[#1E56A0]' : 'w-2.5 bg-[#9BB7DB] group-hover:bg-[#7A9ECA]'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
-          <p className="text-xs text-[#7B8798] flex items-center gap-1.5">
-            <span>👆</span>
+          <p className="text-xs text-[#475569] flex items-center gap-1.5">
+            <span aria-hidden="true">👆</span>
             <span>Clique nos depoimentos laterais ou nas setas para navegar</span>
           </p>
         </div>
@@ -299,7 +319,7 @@ export const Testimonials: React.FC = () => {
               type="button"
               onClick={() => setZoomModalIndex(null)}
               aria-label="Fechar visualização"
-              className="absolute -top-12 right-0 text-white/90 hover:text-white bg-white/20 hover:bg-white/30 rounded-full p-2 backdrop-blur-md transition-all cursor-pointer"
+              className="absolute -top-12 right-0 text-white/90 hover:text-white bg-white/20 hover:bg-white/30 rounded-full p-2.5 backdrop-blur-md transition-all cursor-pointer"
             >
               <X className="w-6 h-6" />
             </button>
@@ -307,9 +327,10 @@ export const Testimonials: React.FC = () => {
             {/* Modal Image Box */}
             <div className="relative w-full max-h-[82vh] rounded-[22px] sm:rounded-[28px] overflow-hidden bg-white shadow-2xl border border-white/20 flex items-center justify-center p-2">
               <img
-                src={testimonialList[zoomModalIndex].directUrl}
+                src={testimonialList[zoomModalIndex].zoomUrl}
+                width={941}
+                height={1672}
                 alt={testimonialList[zoomModalIndex].alt}
-                referrerPolicy="no-referrer"
                 className="w-full h-auto max-h-[80vh] object-contain rounded-[16px] sm:rounded-[22px]"
               />
             </div>
