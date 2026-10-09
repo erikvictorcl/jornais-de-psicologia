@@ -20,11 +20,6 @@ export const Guarantee: React.FC = () => {
           Você tem 7 dias para conhecer o material
         </h2>
 
-        {/* Description */}
-        <p className="mt-4 text-base sm:text-[17px] text-[#5A6578] leading-relaxed max-w-xl mx-auto font-normal">
-          Você pode acessar o conteúdo e avaliar com tranquilidade. Se dentro de 7 dias entender que o material não é para você, basta solicitar o reembolso conforme as condições da plataforma.
-        </p>
-
         {/* Bottom Guarantee Badge */}
         <div className="mt-6 flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-[#1E56A0]">
           <Ribbon className="w-4 h-4 text-[#1E56A0]" />

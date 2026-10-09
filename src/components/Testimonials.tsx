@@ -136,10 +136,6 @@ export const Testimonials: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl md:text-[36px] font-extrabold text-[#1E2530] tracking-tight leading-tight">
             Quem já viu, aprovou
           </h2>
-          
-          <p className="mt-2 text-sm sm:text-base text-[#5A6578] leading-relaxed max-w-xl mx-auto">
-            Veja relatos reais de psicólogos e profissionais que já utilizam e recomendam o Jornal das Emoções nos atendimentos.
-          </p>
 
           {/* Rating Badge */}
           <div className="mt-3.5 inline-flex items-center gap-1.5 bg-white px-4 py-1.5 rounded-full border border-[#E1ECF7] shadow-xs text-xs sm:text-sm font-bold text-[#1E2530]">

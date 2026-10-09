@@ -19,9 +19,6 @@ export const PricingOffers: React.FC<PricingOffersProps> = ({ onSelectPlan }) =>
           <h2 className="text-2xl sm:text-3xl md:text-[36px] font-extrabold text-[#1E2530] tracking-tight">
             Escolha a melhor opção para você
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-[#5A6578]">
-            Acesso digital imediato a todo o acervo organizado do Jornal das Emoções.
-          </p>
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs sm:text-[13px] font-semibold text-[#1E2530]">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white rounded-full border border-[#E1ECF7] shadow-2xs">

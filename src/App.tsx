@@ -8,7 +8,6 @@ import { WhatItDelivers } from './components/WhatItDelivers';
 import { PricingOffers } from './components/PricingOffers';
 import { AccessSteps } from './components/AccessSteps';
 import { Testimonials } from './components/Testimonials';
-import { Guarantee } from './components/Guarantee';
 import { MindMapItem } from './types';
 
 const MapPreviewModal = lazy(() =>
@@ -97,9 +96,6 @@ export default function App() {
 
         {/* 10. DEPOIMENTOS */}
         <Testimonials />
-
-        {/* 11. GARANTIA */}
-        <Guarantee />
       </main>
 
       {/* Rodapé institucional discreto */}
