@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect, startTransition, lazy, Suspense } from 'react';
 import { TopBar } from './components/TopBar';
 import { Hero } from './components/Hero';
 import { QuickBenefits } from './components/QuickBenefits';
@@ -9,18 +9,34 @@ import { PricingOffers } from './components/PricingOffers';
 import { AccessSteps } from './components/AccessSteps';
 import { Testimonials } from './components/Testimonials';
 import { Guarantee } from './components/Guarantee';
-import { UpgradeModal } from './components/UpgradeModal';
 import { MindMapItem } from './types';
 
 const MapPreviewModal = lazy(() =>
   import('./components/MapPreviewModal').then((m) => ({ default: m.MapPreviewModal }))
 );
 
+const UpgradeModal = lazy(() =>
+  import('./components/UpgradeModal').then((m) => ({ default: m.UpgradeModal }))
+);
+
 export default function App() {
   const [selectedMap, setSelectedMap] = useState<MindMapItem | null>(null);
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
-
   const [notification, setNotification] = useState<string | null>(null);
+
+  // Preload UpgradeModal chunk in idle time so opening it is instant
+  useEffect(() => {
+    const preload = () => {
+      import('./components/UpgradeModal');
+    };
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(preload, { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
+    } else {
+      const timer = setTimeout(preload, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const scrollToOffers = () => {
     const el = document.getElementById('ofertas');
@@ -28,9 +44,13 @@ export default function App() {
   };
 
   const proceedToCheckout = (planName: string) => {
-    setNotification(`Opção selecionada: ${planName}. O link de checkout oficial será inserido aqui.`);
+    startTransition(() => {
+      setNotification(`Opção selecionada: ${planName}. O link de checkout oficial será inserido aqui.`);
+    });
     setTimeout(() => {
-      setNotification(null);
+      startTransition(() => {
+        setNotification(null);
+      });
     }, 4500);
   };
 
@@ -106,12 +126,16 @@ export default function App() {
       )}
 
       {/* Popup de Upgrade para o Pacote Bônus */}
-      <UpgradeModal
-        isOpen={isUpgradeModalOpen}
-        onClose={() => setIsUpgradeModalOpen(false)}
-        onSelectBonusPackage={() => setIsUpgradeModalOpen(false)}
-        onContinueBasicPackage={() => setIsUpgradeModalOpen(false)}
-      />
+      {isUpgradeModalOpen && (
+        <Suspense fallback={null}>
+          <UpgradeModal
+            isOpen={isUpgradeModalOpen}
+            onClose={() => setIsUpgradeModalOpen(false)}
+            onSelectBonusPackage={() => setIsUpgradeModalOpen(false)}
+            onContinueBasicPackage={() => setIsUpgradeModalOpen(false)}
+          />
+        </Suspense>
+      )}
 
       {/* In-app Notification Toast */}
       {notification && (

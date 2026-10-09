@@ -30,7 +30,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Atividade para reconhecer momentos felizes, conquistas e estimular bons sentimentos na criança.',
     branches: ['Reconhecer o que Sente', 'Onde Sinto no Corpo', 'Momentos Especiais'],
     previewUrl: imgurJornal1,
-    srcSet: '/images/jornal-1-260.webp 260w, /images/jornal-1-420.webp 420w, /images/jornal-1-600.webp 600w',
+    srcSet: '/images/jornal-1-180.webp 180w, /images/jornal-1-260.webp 260w, /images/jornal-1-420.webp 420w, /images/jornal-1-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -41,7 +41,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Espaço seguro para a criança desabafar, dar nome às emoções e se sentir compreendida.',
     branches: ['Dar Nome ao que Sente', 'Espaço para Desabafar', 'O que Me Acalma'],
     previewUrl: imgurJornal2,
-    srcSet: '/images/jornal-2-260.webp 260w, /images/jornal-2-420.webp 420w, /images/jornal-2-600.webp 600w',
+    srcSet: '/images/jornal-2-180.webp 180w, /images/jornal-2-260.webp 260w, /images/jornal-2-420.webp 420w, /images/jornal-2-600.webp 600w',
     accentColor: '#3B73B9',
   },
   {
@@ -52,7 +52,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Ajuda a criança a entender sentimentos difíceis e transformar a frustração em palavras.',
     branches: ['Gatilhos Emocionais', 'Expressão Segura', 'Como Voltar à Calma'],
     previewUrl: imgurJornal3,
-    srcSet: '/images/jornal-3-260.webp 260w, /images/jornal-3-420.webp 420w, /images/jornal-3-600.webp 600w',
+    srcSet: '/images/jornal-3-180.webp 180w, /images/jornal-3-260.webp 260w, /images/jornal-3-420.webp 420w, /images/jornal-3-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -63,7 +63,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Exploração leve e criativa dos sentimentos infantis e recursos internos de proteção.',
     branches: ['O que Me Preocupa', 'Rede de Apoio', 'Descobrindo a Coragem'],
     previewUrl: imgurJornal4,
-    srcSet: '/images/jornal-4-260.webp 260w, /images/jornal-4-420.webp 420w, /images/jornal-4-600.webp 600w',
+    srcSet: '/images/jornal-4-180.webp 180w, /images/jornal-4-260.webp 260w, /images/jornal-4-420.webp 420w, /images/jornal-4-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -74,7 +74,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Atividade prática para organizar pensamentos e sentimentos dentro e fora da sessão.',
     branches: ['Pensamentos Lá Dentro', 'Sinais do Corpo', 'Respiração e Presença'],
     previewUrl: imgurJornal5,
-    srcSet: '/images/jornal-5-260.webp 260w, /images/jornal-5-420.webp 420w, /images/jornal-5-600.webp 600w',
+    srcSet: '/images/jornal-5-180.webp 180w, /images/jornal-5-260.webp 260w, /images/jornal-5-420.webp 420w, /images/jornal-5-600.webp 600w',
     accentColor: '#3B73B9',
   },
   {
@@ -85,7 +85,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Estimula a percepção de serenidade, segurança e autorregulação no processo terapêutico.',
     branches: ['Meu Lugar Seguro', 'O que Traz Paz', 'Vínculo Terapêutico'],
     previewUrl: imgurJornal6,
-    srcSet: '/images/jornal-6-260.webp 260w, /images/jornal-6-420.webp 420w, /images/jornal-6-600.webp 600w',
+    srcSet: '/images/jornal-6-180.webp 180w, /images/jornal-6-260.webp 260w, /images/jornal-6-420.webp 420w, /images/jornal-6-600.webp 600w',
     accentColor: '#1E56A0',
   },
   {
@@ -96,7 +96,7 @@ export const sampleMindMaps: ShowcaseMindMapItem[] = [
     description: 'Facilita a comunicação da criança no tempo dela, fortalecendo o vínculo com o psicólogo.',
     branches: ['No Tempo da Criança', 'Expressão sem Julgamento', 'Autoconfiança'],
     previewUrl: imgurJornal7,
-    srcSet: '/images/jornal-7-260.webp 260w, /images/jornal-7-420.webp 420w, /images/jornal-7-600.webp 600w',
+    srcSet: '/images/jornal-7-180.webp 180w, /images/jornal-7-260.webp 260w, /images/jornal-7-420.webp 420w, /images/jornal-7-600.webp 600w',
     accentColor: '#3B73B9',
   },
 ];

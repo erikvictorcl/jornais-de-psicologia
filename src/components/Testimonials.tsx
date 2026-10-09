@@ -75,27 +75,23 @@ export const Testimonials: React.FC = () => {
     setCurrentIndex((prev) => (prev === testimonialList.length - 1 ? 0 : prev + 1));
   }, []);
 
-  // Keyboard navigation
+  // Keyboard navigation when zoom modal is open
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (zoomModalIndex !== null) {
-        if (e.key === 'Escape') setZoomModalIndex(null);
-        if (e.key === 'ArrowLeft') {
-          setZoomModalIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : testimonialList.length - 1));
-        }
-        if (e.key === 'ArrowRight') {
-          setZoomModalIndex((prev) => (prev !== null && prev < testimonialList.length - 1 ? prev + 1 : 0));
-        }
-        return;
-      }
+    if (zoomModalIndex === null) return;
 
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setZoomModalIndex(null);
+      if (e.key === 'ArrowLeft') {
+        setZoomModalIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : testimonialList.length - 1));
+      }
+      if (e.key === 'ArrowRight') {
+        setZoomModalIndex((prev) => (prev !== null && prev < testimonialList.length - 1 ? prev + 1 : 0));
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handlePrev, handleNext, zoomModalIndex]);
+  }, [zoomModalIndex]);
 
   // Touch swipe handlers
   const minSwipeDistance = 45;

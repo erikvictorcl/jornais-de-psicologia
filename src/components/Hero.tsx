@@ -1,12 +1,12 @@
 import React from 'react';
-import { ArrowRight, Laptop, Smartphone, Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 interface HeroProps {
   onCtaClick?: () => void;
   onPreviewOpen?: (mapTitle: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
+export const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
   const scrollToOffers = () => {
     if (onCtaClick) {
       onCtaClick();
@@ -21,8 +21,8 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
     {
       id: 'hero-card-1',
       title: 'Jornal das Emoções - Edição 1',
-      src: '/images/jornal-1-260.webp',
-      srcSet: '/images/jornal-1-260.webp 260w, /images/jornal-1-420.webp 420w, /images/jornal-1-600.webp 600w',
+      src: '/images/jornal-1-180.webp',
+      srcSet: '/images/jornal-1-180.webp 180w, /images/jornal-1-260.webp 260w, /images/jornal-1-420.webp 420w, /images/jornal-1-600.webp 600w',
       alt: 'Jornal das Emoções - Folha 1',
       rotation: '-rotate-[3deg]',
       translateY: 'translate-y-2 sm:translate-y-3.5',
@@ -32,8 +32,8 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
     {
       id: 'hero-card-2',
       title: 'Jornal das Emoções - Edição 2',
-      src: '/images/jornal-2-260.webp',
-      srcSet: '/images/jornal-2-260.webp 260w, /images/jornal-2-420.webp 420w, /images/jornal-2-600.webp 600w',
+      src: '/images/jornal-2-180.webp',
+      srcSet: '/images/jornal-2-180.webp 180w, /images/jornal-2-260.webp 260w, /images/jornal-2-420.webp 420w, /images/jornal-2-600.webp 600w',
       alt: 'Jornal das Emoções - Folha 2',
       rotation: '-rotate-[1.5deg]',
       translateY: 'translate-y-1',
@@ -43,8 +43,8 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
     {
       id: 'hero-card-3',
       title: 'Jornal das Emoções - Edição 3',
-      src: '/images/jornal-3-260.webp',
-      srcSet: '/images/jornal-3-260.webp 260w, /images/jornal-3-420.webp 420w, /images/jornal-3-600.webp 600w',
+      src: '/images/jornal-3-180.webp',
+      srcSet: '/images/jornal-3-180.webp 180w, /images/jornal-3-260.webp 260w, /images/jornal-3-420.webp 420w, /images/jornal-3-600.webp 600w',
       alt: 'Jornal das Emoções - Folha Central',
       rotation: 'rotate-0',
       translateY: '-translate-y-1 sm:-translate-y-2.5',
@@ -54,8 +54,8 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
     {
       id: 'hero-card-4',
       title: 'Jornal das Emoções - Edição 4',
-      src: '/images/jornal-4-260.webp',
-      srcSet: '/images/jornal-4-260.webp 260w, /images/jornal-4-420.webp 420w, /images/jornal-4-600.webp 600w',
+      src: '/images/jornal-4-180.webp',
+      srcSet: '/images/jornal-4-180.webp 180w, /images/jornal-4-260.webp 260w, /images/jornal-4-420.webp 420w, /images/jornal-4-600.webp 600w',
       alt: 'Jornal das Emoções - Folha 4',
       rotation: 'rotate-[1.5deg]',
       translateY: 'translate-y-1',
@@ -65,8 +65,8 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
     {
       id: 'hero-card-5',
       title: 'Jornal das Emoções - Edição 5',
-      src: '/images/jornal-5-260.webp',
-      srcSet: '/images/jornal-5-260.webp 260w, /images/jornal-5-420.webp 420w, /images/jornal-5-600.webp 600w',
+      src: '/images/jornal-5-180.webp',
+      srcSet: '/images/jornal-5-180.webp 180w, /images/jornal-5-260.webp 260w, /images/jornal-5-420.webp 420w, /images/jornal-5-600.webp 600w',
       alt: 'Jornal das Emoções - Folha 5',
       rotation: 'rotate-[3deg]',
       translateY: 'translate-y-2 sm:translate-y-3.5',
@@ -121,16 +121,16 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
                     {/* Screen View */}
                     <div className="bg-[#0F1012] rounded-t-sm sm:rounded-md overflow-hidden aspect-[1672/941] flex items-center justify-center border border-[#2D3039] relative">
                       <img 
-                        src="/images/hero-laptop-960.webp" 
-                        srcSet="/images/hero-laptop-640.webp 640w, /images/hero-laptop-960.webp 960w, /images/hero-laptop-1280.webp 1280w"
-                        sizes="(max-width: 640px) 310px, (max-width: 768px) 480px, 650px"
+                        src="/images/hero-laptop-480.webp" 
+                        srcSet="/images/hero-laptop-480.webp 480w, /images/hero-laptop-640.webp 640w, /images/hero-laptop-960.webp 960w, /images/hero-laptop-1280.webp 1280w"
+                        sizes="(max-width: 640px) 265px, (max-width: 768px) 480px, 650px"
                         width={1672}
                         height={941}
                         alt="Visualização do Jornal das Emoções no computador" 
                         className="w-full h-full object-contain select-none block"
                         loading="eager"
                         fetchPriority="high"
-                        decoding="sync"
+                        decoding="async"
                       />
                     </div>
 
@@ -247,14 +247,15 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
                     {/* Phone screen preview */}
                     <div className="w-full h-full relative overflow-hidden bg-black flex items-center justify-center">
                       <img 
-                        src="/images/hero-phone-240.webp" 
-                        srcSet="/images/hero-phone-240.webp 240w, /images/hero-phone-420.webp 420w"
-                        sizes="(max-width: 640px) 80px, 128px"
+                        src="/images/hero-phone-160.webp" 
+                        srcSet="/images/hero-phone-160.webp 160w, /images/hero-phone-240.webp 240w, /images/hero-phone-420.webp 420w"
+                        sizes="(max-width: 640px) 60px, 120px"
                         width={941}
                         height={1672}
                         alt="Visualização mobile do Jornal das Emoções no celular" 
                         className="w-full h-full object-contain select-none block"
                         loading="eager"
+                        fetchPriority="low"
                         decoding="async"
                       />
                     </div>
@@ -281,13 +282,13 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onPreviewOpen }) => {
                     <img
                       src={card.src}
                       srcSet={card.srcSet}
-                      sizes="(max-width: 640px) 115px, (max-width: 1024px) 192px, 242px"
+                      sizes="(max-width: 640px) 92px, (max-width: 1024px) 180px, 242px"
                       width={1055}
                       height={1491}
                       alt={card.alt}
                       className="w-full h-full object-contain select-none block bg-white"
                       loading="eager"
-                      fetchPriority={idx === 2 ? 'high' : 'auto'}
+                      fetchPriority={idx === 2 ? 'high' : 'low'}
                       decoding="async"
                     />
                   </div>
