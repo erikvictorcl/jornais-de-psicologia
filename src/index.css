@@ -49,6 +49,26 @@
   animation: marquee-to-left 48s linear infinite;
 }
 
+/* Smooth marquee for compact single-line banner */
+@keyframes marquee-banner-loop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-banner-carousel {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  animation: marquee-banner-loop 36s linear infinite;
+}
+
 .animate-marquee-right {
   display: flex;
   width: max-content;
@@ -62,7 +82,10 @@
 .animate-marquee-left:focus,
 .animate-marquee-right:hover,
 .animate-marquee-right:active,
-.animate-marquee-right:focus {
+.animate-marquee-right:focus,
+.animate-banner-carousel:hover,
+.animate-banner-carousel:active,
+.animate-banner-carousel:focus {
   animation-play-state: running !important;
 }
 

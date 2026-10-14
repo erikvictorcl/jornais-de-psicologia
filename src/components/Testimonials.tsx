@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Star, Maximize2, X } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 export interface TestimonialImageItem {
   id: string;
@@ -16,8 +16,8 @@ export const testimonialList: TestimonialImageItem[] = [
     id: 'dep-1',
     directUrl: '/images/dep-1-360.webp',
     srcSet: '/images/dep-1-360.webp 360w, /images/dep-1-560.webp 560w',
-    zoomUrl: '/images/dep-1-840.webp',
-    originalLink: 'https://imgur.com/a/9ExOobb',
+    zoomUrl: 'https://i.imgur.com/QTTrY9l.jpeg',
+    originalLink: 'https://imgur.com/a/rQGjXZE',
     alt: 'Depoimento real de profissional sobre o Jornal das Emoções',
     label: 'Depoimento 1',
   },
@@ -25,8 +25,8 @@ export const testimonialList: TestimonialImageItem[] = [
     id: 'dep-2',
     directUrl: '/images/dep-2-360.webp',
     srcSet: '/images/dep-2-360.webp 360w, /images/dep-2-560.webp 560w',
-    zoomUrl: '/images/dep-2-840.webp',
-    originalLink: 'https://imgur.com/a/TynEO8Y',
+    zoomUrl: 'https://i.imgur.com/zjsNMYw.jpeg',
+    originalLink: 'https://imgur.com/a/ExpIwPY',
     alt: 'Depoimento real elogiando a leveza e criatividade do material no atendimento infantil',
     label: 'Depoimento 2',
   },
@@ -34,8 +34,8 @@ export const testimonialList: TestimonialImageItem[] = [
     id: 'dep-3',
     directUrl: '/images/dep-3-360.webp',
     srcSet: '/images/dep-3-360.webp 360w, /images/dep-3-560.webp 560w',
-    zoomUrl: '/images/dep-3-840.webp',
-    originalLink: 'https://imgur.com/a/gpzAMjS',
+    zoomUrl: 'https://i.imgur.com/THRHucY.jpeg',
+    originalLink: 'https://imgur.com/a/B4kQxbw',
     alt: 'Feedback espontâneo sobre o vínculo e expressão emocional das crianças',
     label: 'Depoimento 3',
   },
@@ -43,8 +43,8 @@ export const testimonialList: TestimonialImageItem[] = [
     id: 'dep-4',
     directUrl: '/images/dep-4-360.webp',
     srcSet: '/images/dep-4-360.webp 360w, /images/dep-4-560.webp 560w',
-    zoomUrl: '/images/dep-4-840.webp',
-    originalLink: 'https://imgur.com/a/Zqfv37s',
+    zoomUrl: 'https://i.imgur.com/gAyxOuN.jpeg',
+    originalLink: 'https://imgur.com/a/AnxlhyT',
     alt: 'Relato real sobre a praticidade das atividades prontas na sessão',
     label: 'Depoimento 4',
   },
@@ -52,8 +52,8 @@ export const testimonialList: TestimonialImageItem[] = [
     id: 'dep-5',
     directUrl: '/images/dep-5-360.webp',
     srcSet: '/images/dep-5-360.webp 360w, /images/dep-5-560.webp 560w',
-    zoomUrl: '/images/dep-5-840.webp',
-    originalLink: 'https://imgur.com/a/3bV2k4s',
+    zoomUrl: 'https://i.imgur.com/s3ko7V1.jpeg',
+    originalLink: 'https://imgur.com/a/Q5KZYY2',
     alt: 'Depoimento real recomendando o Jornal das Emoções',
     label: 'Depoimento 5',
   },
@@ -61,7 +61,6 @@ export const testimonialList: TestimonialImageItem[] = [
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [zoomModalIndex, setZoomModalIndex] = useState<number | null>(null);
 
   // Touch swipe support
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -74,24 +73,6 @@ export const Testimonials: React.FC = () => {
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === testimonialList.length - 1 ? 0 : prev + 1));
   }, []);
-
-  // Keyboard navigation when zoom modal is open
-  useEffect(() => {
-    if (zoomModalIndex === null) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setZoomModalIndex(null);
-      if (e.key === 'ArrowLeft') {
-        setZoomModalIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : testimonialList.length - 1));
-      }
-      if (e.key === 'ArrowRight') {
-        setZoomModalIndex((prev) => (prev !== null && prev < testimonialList.length - 1 ? prev + 1 : 0));
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [zoomModalIndex]);
 
   // Touch swipe handlers
   const minSwipeDistance = 45;
@@ -201,7 +182,7 @@ export const Testimonials: React.FC = () => {
               if (isCenter) {
                 transformClass = 'translate-x-0 scale-100';
                 zIndexClass = 'z-30';
-                opacityClass = 'opacity-100 shadow-[0_20px_50px_rgba(0,0,0,0.22)] cursor-pointer filter brightness-100';
+                opacityClass = 'opacity-100 shadow-[0_20px_50px_rgba(0,0,0,0.22)] cursor-default filter brightness-100';
               } else if (isLeft) {
                 transformClass = '-translate-x-[52%] sm:-translate-x-[64%] md:-translate-x-[72%] scale-[0.82] sm:scale-[0.85]';
                 zIndexClass = 'z-10';
@@ -218,15 +199,13 @@ export const Testimonials: React.FC = () => {
                       handlePrev();
                     } else if (isRight) {
                       handleNext();
-                    } else if (isCenter) {
-                      setZoomModalIndex(index);
                     }
                   }}
-                  role="button"
-                  tabIndex={0}
+                  role={isCenter ? 'group' : 'button'}
+                  tabIndex={isCenter ? -1 : 0}
                   aria-label={
                     isCenter 
-                      ? 'Depoimento atual. Clique para ampliar.' 
+                      ? 'Depoimento em destaque' 
                       : isLeft 
                       ? 'Clique para ir ao depoimento anterior.' 
                       : 'Clique para ir ao próximo depoimento.'
@@ -234,7 +213,7 @@ export const Testimonials: React.FC = () => {
                   className={`absolute top-1/2 -translate-y-1/2 transition-all duration-400 ease-out origin-center w-[250px] min-[400px]:w-[275px] sm:w-[305px] md:w-[325px] ${transformClass} ${zIndexClass} ${opacityClass}`}
                 >
                   {/* Smartphone Frame Container */}
-                  <div className="relative aspect-[941/1672] w-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-white border border-[#C8D9EE]/70 shadow-lg group">
+                  <div className="relative aspect-[941/1672] w-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-white border border-[#C8D9EE]/70 shadow-lg">
                     <img
                       src={item.directUrl}
                       srcSet={item.srcSet}
@@ -244,18 +223,15 @@ export const Testimonials: React.FC = () => {
                       alt={item.alt}
                       loading="lazy"
                       decoding="async"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (target.src !== item.zoomUrl) {
+                          target.removeAttribute('srcset');
+                          target.src = item.zoomUrl;
+                        }
+                      }}
                       className="w-full h-full object-contain block bg-[#FAF8F5]"
                     />
-
-                    {/* Dica de clique para ampliar no card central */}
-                    {isCenter && (
-                      <div className="absolute inset-0 bg-[#1E56A0]/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#1E56A0] text-xs font-bold shadow-md transform translate-y-1 group-hover:translate-y-0 transition-transform">
-                          <Maximize2 className="w-3.5 h-3.5" />
-                          <span>Clique para ampliar</span>
-                        </span>
-                      </div>
-                    )}
                   </div>
                 </div>
               );
@@ -291,69 +267,6 @@ export const Testimonials: React.FC = () => {
         </div>
 
       </div>
-
-      {/* Modal Lightbox de Zoom para Leitura Completa */}
-      {zoomModalIndex !== null && (
-        <div 
-          role="dialog"
-          aria-modal="true"
-          aria-label="Visualização ampliada do depoimento"
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200"
-          onClick={() => setZoomModalIndex(null)}
-        >
-          {/* Modal Container */}
-          <div 
-            className="relative max-w-[480px] w-full max-h-[92vh] flex flex-col items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Top Close Button */}
-            <button
-              type="button"
-              onClick={() => setZoomModalIndex(null)}
-              aria-label="Fechar visualização"
-              className="absolute -top-12 right-0 text-white/90 hover:text-white bg-white/20 hover:bg-white/30 rounded-full p-2.5 backdrop-blur-md transition-all cursor-pointer"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Modal Image Box */}
-            <div className="relative w-full max-h-[82vh] rounded-[22px] sm:rounded-[28px] overflow-hidden bg-white shadow-2xl border border-white/20 flex items-center justify-center p-2">
-              <img
-                src={testimonialList[zoomModalIndex].zoomUrl}
-                width={941}
-                height={1672}
-                alt={testimonialList[zoomModalIndex].alt}
-                className="w-full h-auto max-h-[80vh] object-contain rounded-[16px] sm:rounded-[22px]"
-              />
-            </div>
-
-            {/* Bottom Modal Navigation */}
-            <div className="mt-3 flex items-center justify-between w-full text-white text-xs px-2">
-              <button
-                type="button"
-                onClick={() => setZoomModalIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : testimonialList.length - 1))}
-                className="inline-flex items-center gap-1 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Anterior</span>
-              </button>
-
-              <span className="font-semibold text-white/80">
-                {zoomModalIndex + 1} de {testimonialList.length}
-              </span>
-
-              <button
-                type="button"
-                onClick={() => setZoomModalIndex((prev) => (prev !== null && prev < testimonialList.length - 1 ? prev + 1 : 0))}
-                className="inline-flex items-center gap-1 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer"
-              >
-                <span>Próximo</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
     </section>
   );

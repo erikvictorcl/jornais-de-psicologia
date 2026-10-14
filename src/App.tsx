@@ -1,6 +1,7 @@
 import React, { useState, useEffect, startTransition, lazy, Suspense } from 'react';
 import { TopBar } from './components/TopBar';
 import { Hero } from './components/Hero';
+import { TargetAudienceBanner } from './components/TargetAudienceBanner';
 import { QuickBenefits } from './components/QuickBenefits';
 import { MindMapsShowcase } from './components/MindMapsShowcase';
 import { IntermediateCTA } from './components/IntermediateCTA';
@@ -8,6 +9,8 @@ import { WhatItDelivers } from './components/WhatItDelivers';
 import { PricingOffers } from './components/PricingOffers';
 import { AccessSteps } from './components/AccessSteps';
 import { Testimonials } from './components/Testimonials';
+import { Guarantee } from './components/Guarantee';
+import { PurchaseNotifications } from './components/PurchaseNotifications';
 import { MindMapItem } from './types';
 
 const MapPreviewModal = lazy(() =>
@@ -72,6 +75,9 @@ export default function App() {
           onCtaClick={scrollToOffers}
         />
 
+        {/* FAIXA DE PÚBLICO-ALVO (EM LINHA RETA, SEM BORDAS ARREDONDADAS, CENTRALIZADA ENTRE HERO E PRÓXIMA SEÇÃO) */}
+        <TargetAudienceBanner />
+
         {/* 3. BENEFÍCIOS RÁPIDOS & BOX DE DESTAQUE */}
         <QuickBenefits />
 
@@ -96,6 +102,9 @@ export default function App() {
 
         {/* 10. DEPOIMENTOS */}
         <Testimonials />
+
+        {/* 11. GARANTIA */}
+        <Guarantee />
       </main>
 
       {/* Rodapé institucional discreto */}
@@ -132,6 +141,9 @@ export default function App() {
           />
         </Suspense>
       )}
+
+      {/* Floating Purchase Notifications (Top-right corner) */}
+      <PurchaseNotifications />
 
       {/* In-app Notification Toast */}
       {notification && (
