@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
   ];
 
   return (
-    <header id="hero-section" className="pt-8 pb-6 sm:pt-12 sm:pb-8 px-3 sm:px-6 overflow-hidden">
+    <header id="hero-section" className="pt-8 pb-12 sm:pt-12 sm:pb-16 md:pb-20 px-3 sm:px-6 overflow-hidden">
       <div className="max-w-[1140px] mx-auto">
         {/* Main Central Card Container */}
         <div 

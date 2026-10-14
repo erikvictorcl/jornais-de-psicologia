@@ -156,14 +156,14 @@ export function PurchaseNotifications() {
     }
   }, []);
 
-  // Agenda a próxima notificação com intervalo aleatório entre 15 e 25 segundos
+  // Agenda a próxima notificação com intervalo aleatório entre 15 e 40 segundos
   const scheduleNextNotification = useCallback((delayMs?: number) => {
     if (isDestroyedRef.current) return;
 
-    // Se não for fornecido delay explícito, sorteia entre 15 e 25 segundos
+    // Se não for fornecido delay explícito, sorteia entre 15 e 40 segundos
     const nextInterval = delayMs !== undefined
       ? delayMs
-      : Math.floor(Math.random() * (25000 - 15000 + 1)) + 15000;
+      : Math.floor(Math.random() * (40000 - 15000 + 1)) + 15000;
 
     timeoutIdRef.current = window.setTimeout(() => {
       displayNextPurchase();
@@ -228,7 +228,7 @@ export function PurchaseNotifications() {
           setCurrentNotification(null);
           setAnimState('idle');
 
-          // Agenda a próxima aparição com sorteio aleatório entre 15 e 25 segundos
+          // Agenda a próxima aparição com sorteio aleatório entre 15 e 40 segundos
           scheduleNextNotification();
         }, 350);
       }, 4500);
@@ -259,8 +259,8 @@ export function PurchaseNotifications() {
       });
     };
 
-    // Primeira notificação aparece suavemente entre 9 a 13 segundos após o lead começar a navegar
-    const initialDelay = Math.floor(Math.random() * (13000 - 9000 + 1)) + 9000;
+    // Primeira notificação demora exatamente 10 segundos para aparecer após o lead entrar
+    const initialDelay = 10000;
     scheduleNextNotification(initialDelay);
 
     return () => {

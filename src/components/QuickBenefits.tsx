@@ -27,7 +27,7 @@ export const QuickBenefits: React.FC = () => {
     <section 
       id="beneficios" 
       aria-label="Benefícios do Jornal das Emoções"
-      className="pt-6 sm:pt-8 pb-14 sm:pb-20 px-4 sm:px-6 bg-transparent overflow-hidden"
+      className="pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-20 px-4 sm:px-6 bg-transparent overflow-hidden"
     >
       <div className="max-w-[980px] mx-auto">
         

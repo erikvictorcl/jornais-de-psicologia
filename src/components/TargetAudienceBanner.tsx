@@ -11,11 +11,11 @@ export const TargetAudienceBanner: React.FC = memo(() => {
 
   const renderBannerSegment = (isAriaHidden = false) => (
     <div 
-      className="flex items-center gap-3 sm:gap-4 shrink-0 pr-8 sm:pr-10 text-white font-bold text-xs sm:text-[13px] tracking-wide whitespace-nowrap select-none"
+      className="flex items-center gap-3.5 sm:gap-5 shrink-0 pr-10 sm:pr-14 text-white font-bold text-sm sm:text-[15px] md:text-base tracking-wide whitespace-nowrap select-none"
       aria-hidden={isAriaHidden}
     >
       {/* Título sem emoji e sem bordas arredondadas */}
-      <span className="font-extrabold uppercase text-[11px] sm:text-[12.5px] tracking-wider text-white">
+      <span className="font-extrabold uppercase text-xs sm:text-[13.5px] md:text-sm tracking-wider text-white">
         FEITO PARA QUEM CUIDA DO DESENVOLVIMENTO INFANTIL:
       </span>
 
@@ -25,7 +25,7 @@ export const TargetAudienceBanner: React.FC = memo(() => {
           <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.18)] font-semibold">
             {item}
           </span>
-          <span className="text-white/70 text-[10px] sm:text-xs" aria-hidden="true">
+          <span className="text-white/70 text-xs sm:text-sm" aria-hidden="true">
             •
           </span>
         </React.Fragment>
@@ -38,7 +38,7 @@ export const TargetAudienceBanner: React.FC = memo(() => {
       id="faixa-publico-alvo"
       role="region"
       aria-label="Público-alvo do Jornal das Emoções"
-      className="relative w-full overflow-hidden bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#0284C7] border-y border-[#38BDF8]/40 shadow-[0_2px_10px_rgba(2,132,199,0.2)] py-2.5 sm:py-3 rounded-none select-none"
+      className="relative w-full overflow-hidden bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#0284C7] border-y border-[#38BDF8]/40 shadow-[0_2px_12px_rgba(2,132,199,0.22)] py-4 sm:py-5 md:py-5.5 rounded-none select-none"
       style={{ contain: 'paint' }}
     >
       {/* Sombras suaves nas laterais para entrada e saída harmônica sem bordas arredondadas */}
