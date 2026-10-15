@@ -57,6 +57,15 @@ export const testimonialList: TestimonialImageItem[] = [
     alt: 'Depoimento real recomendando o Jornal das Emoções',
     label: 'Depoimento 5',
   },
+  {
+    id: 'dep-6',
+    directUrl: 'https://i.imgur.com/yTEQ4xM.jpeg',
+    srcSet: '',
+    zoomUrl: 'https://i.imgur.com/yTEQ4xM.jpeg',
+    originalLink: 'https://imgur.com/a/XgIqBFv',
+    alt: 'Depoimento real sobre a experiência e resultados com o Jornal das Emoções',
+    label: 'Depoimento 6',
+  },
 ];
 
 export const Testimonials: React.FC = () => {
@@ -216,7 +225,7 @@ export const Testimonials: React.FC = () => {
                   <div className="relative aspect-[941/1672] w-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-white border border-[#C8D9EE]/70 shadow-lg">
                     <img
                       src={item.directUrl}
-                      srcSet={item.srcSet}
+                      srcSet={item.srcSet || undefined}
                       sizes="(max-width: 640px) 275px, 325px"
                       width={941}
                       height={1672}
@@ -228,6 +237,9 @@ export const Testimonials: React.FC = () => {
                         if (target.src !== item.zoomUrl) {
                           target.removeAttribute('srcset');
                           target.src = item.zoomUrl;
+                        } else if (item.id === 'dep-6') {
+                          target.removeAttribute('srcset');
+                          target.src = '/images/dep-6-360.webp';
                         }
                       }}
                       className="w-full h-full object-contain block bg-[#FAF8F5]"
