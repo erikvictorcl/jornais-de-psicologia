@@ -156,14 +156,14 @@ export function PurchaseNotifications() {
     }
   }, []);
 
-  // Agenda a próxima notificação com intervalo aleatório entre 15 e 40 segundos
+  // Agenda a próxima notificação com intervalo aleatório entre 25 e 30 segundos
   const scheduleNextNotification = useCallback((delayMs?: number) => {
     if (isDestroyedRef.current) return;
 
-    // Se não for fornecido delay explícito, sorteia entre 15 e 40 segundos
+    // Se não for fornecido delay explícito, sorteia entre 25 e 30 segundos
     const nextInterval = delayMs !== undefined
       ? delayMs
-      : Math.floor(Math.random() * (40000 - 15000 + 1)) + 15000;
+      : Math.floor(Math.random() * (30000 - 25000 + 1)) + 25000;
 
     timeoutIdRef.current = window.setTimeout(() => {
       displayNextPurchase();
@@ -228,7 +228,7 @@ export function PurchaseNotifications() {
           setCurrentNotification(null);
           setAnimState('idle');
 
-          // Agenda a próxima aparição com sorteio aleatório entre 15 e 40 segundos
+          // Agenda a próxima aparição com sorteio aleatório entre 25 e 30 segundos
           scheduleNextNotification();
         }, 350);
       }, 4500);
@@ -259,8 +259,8 @@ export function PurchaseNotifications() {
       });
     };
 
-    // Primeira notificação demora exatamente 10 segundos para aparecer após o lead entrar
-    const initialDelay = 10000;
+    // Primeira notificação demora exatamente 25 segundos para aparecer após o lead entrar
+    const initialDelay = 25000;
     scheduleNextNotification(initialDelay);
 
     return () => {
@@ -289,21 +289,21 @@ export function PurchaseNotifications() {
         willChange: 'transform, opacity',
         transition: 'transform 380ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms ease-out',
         transform: isEntering
-          ? 'translate3d(28px, 0, 0)'
+          ? 'translate3d(24px, 0, 0)'
           : isExiting
-          ? 'translate3d(20px, 0, 0)'
+          ? 'translate3d(18px, 0, 0)'
           : 'translate3d(0, 0, 0)',
         opacity: isVisible ? 1 : 0
       }}
     >
-      <div className="flex items-center gap-2 sm:gap-2.5 bg-[#ECFDF5]/84 backdrop-blur-md text-[#064E3B] px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#A7F3D0]/70 shadow-[0_6px_20px_-3px_rgba(6,78,59,0.12),0_2px_5px_-1px_rgba(6,78,59,0.06)] max-w-[230px] sm:max-w-[260px]">
+      <div className="flex items-center gap-1.5 sm:gap-2 bg-[#ECFDF5]/85 backdrop-blur-md text-[#064E3B] px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg border border-[#A7F3D0]/75 shadow-[0_3px_12px_-2px_rgba(6,78,59,0.10),0_1px_3px_-1px_rgba(6,78,59,0.05)] max-w-[165px] sm:max-w-[185px]">
         {/* Pequeno ícone verde de confirmação de compra */}
         <div 
           aria-hidden="true"
-          className="shrink-0 w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-600 border border-emerald-400/30"
+          className="shrink-0 w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-md bg-emerald-500/15 flex items-center justify-center text-emerald-600 border border-emerald-400/30"
         >
           <svg 
-            className="w-3 h-3 sm:w-3.5 sm:h-3.5" 
+            className="w-2.5 h-2.5" 
             viewBox="0 0 20 20" 
             fill="currentColor"
           >
@@ -317,10 +317,10 @@ export function PurchaseNotifications() {
 
         {/* Conteúdo em duas linhas: Nome em destaque + Pacote adquirido */}
         <div className="flex-1 min-w-0 pr-0.5">
-          <p className="font-bold text-[12px] sm:text-[13px] text-[#064E3B] truncate leading-tight tracking-tight">
+          <p className="font-bold text-[10px] sm:text-[10.5px] text-[#064E3B] truncate leading-tight tracking-tight">
             {currentNotification.name}
           </p>
-          <p className="text-[10px] sm:text-[11px] text-[#047857] font-medium leading-tight mt-0.5 truncate">
+          <p className="text-[8.5px] sm:text-[9px] text-[#047857] font-medium leading-tight mt-0.5 truncate">
             Adquiriu o {currentNotification.packageName}
           </p>
         </div>
