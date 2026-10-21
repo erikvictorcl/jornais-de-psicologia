@@ -1,3 +1,4 @@
+// Build release: 2026-10-21-v2
 import React, { useState, useEffect, startTransition, lazy, Suspense } from 'react';
 import { TopBar } from './components/TopBar';
 import { Hero } from './components/Hero';
